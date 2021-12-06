@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-sm-4 offset-md-1 py-4">
                         <ul class="list-unstyled">
-                            <li><a href="http://localhost:3000/api/auth/updateshow" class="text-white">Update</a></li>
+                            <li><a href="#" class="text-white" id="update">Update</a></li>
                             <li><a href="http://localhost:3000/api/auth/logout" class="text-white">Logout</a></li>
                         </ul>
                     </div>
@@ -102,6 +102,23 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        // Send request to get user Details
+        $.get({
+            type: "GET",
+            url: "http://localhost:3000/api/auth/updateshow",
+            dataType: 'json',
+            headers: {
+                "Authorization": cook
+            },
+            success: function (result){
+                console.log(result)
+            }, function( data ) {
+                $( ".result" ).html( data );
+            }
+        });
+    </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

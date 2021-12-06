@@ -76,7 +76,7 @@ router.post("/login", (req, res) => {
                                 res.cookie('auth', "Bearer " + token, { maxAge: 360000 });
                                 const email = person.email;
                                 Data.find({ email }).then(data => {
-                                    return res.render('home', { person: person, message: "User logged in successfully", data: data });
+                                    return res.render('home', { person: person, message: "User logged in successfully", data: data, auth: "Bearer " + token });
                                 }).catch(err => console.log(err));
                             }
                         );
